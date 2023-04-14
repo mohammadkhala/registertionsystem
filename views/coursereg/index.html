@@ -1,15 +1,21 @@
-
 {{extend 'layout.html'}}
 
-{{block header}}
+<h1>Add Course to Schedule</h1>
 
 
-<form method="post" action="{{=URL('default', 'register_course')}}">
-    <select name="course_code">
-        <option value="">-- Select a course --</option>
-        {{for course in courses:}}
-            <option value="{{=course.course_code}}">{{=course.course_name}}</option>
-        {{pass}}
+
+<form method="post" action="{{=URL('coursereg', 'add_course_to_schedule')}}">
+  <div class="form-group">
+    <label for="course">Course:</label>
+    <select name="course" class="form-control">
+      {{for course in courses:}}
+      <option value="{{=course.code}}">{{=course.name}}</option>
+      {{pass}}
     </select>
-    <input type="submit" value="Register">
+  </div>
+  <div class="form-group">
+    <label for="student_id">Student ID:</label>
+    <input type="text" name="student_id" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Course</button>
 </form>
