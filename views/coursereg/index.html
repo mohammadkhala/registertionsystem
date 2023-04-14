@@ -1,0 +1,15 @@
+
+{{extend 'layout.html'}}
+
+{{block header}}
+
+
+<form method="post" action="{{=URL('default', 'register_course')}}">
+    <select name="course_code">
+        <option value="">-- Select a course --</option>
+        {{for course in courses:}}
+            <option value="{{=course.course_code}}">{{=course.course_name}}</option>
+        {{pass}}
+    </select>
+    <input type="submit" value="Register">
+</form>
